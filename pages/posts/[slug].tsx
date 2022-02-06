@@ -15,7 +15,6 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps) {
-  console.log(post)
 
   return (
     <>
@@ -35,8 +34,6 @@ export default function Post({ post }: PostProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
   const session = await getSession({ req })
-
-  console.log(session)
 
   const { slug } = params
 

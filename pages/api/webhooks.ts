@@ -38,13 +38,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     const { type } = event
 
-    console.log(type, 'EVENT TYPE')
     if (relevantEvents.has(type)) {
       try {
         switch (type) {
           case "checkout.session.completed":
             const checkoutSession = event.data.object as Stripe.Checkout.Session
-            console.log('SAVE?')
             await saveSubscription(checkoutSession.subscription.toString(), checkoutSession.customer.toString())
 
             break

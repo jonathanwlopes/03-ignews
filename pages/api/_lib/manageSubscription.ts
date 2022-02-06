@@ -14,5 +14,4 @@ export async function saveSubscription(subscriptionId: string, customerId: strin
     price_id: subscription.items.data[0].price.id,
   }
   await fauna.query(q.Create(q.Collection("subscription"), { data: subscriptionData }))
-  console.log('AQUI?')
 }
